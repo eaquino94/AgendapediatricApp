@@ -37,6 +37,7 @@ import java.util.Date;
 
 import py.fpuna.com.agendapediatricaapp.apis.Manager;
 import py.fpuna.com.agendapediatricaapp.dto.UsuarioDTO;
+
 /**
  * Activity to demonstrate basic retrieval of the Google user's ID, email address, and basic
  * profile.
@@ -336,16 +337,16 @@ public class SignInActivity extends AppCompatActivity implements
         {
 //
             try {
-
+/*
                 Manager manager = new Manager();
-                Boolean respuesta = manager.validarUsuario(correo);
+                String respuesta = manager.validarUsuario(correo);
 
 
-                if(respuesta){
+                if(respuesta.equals("valido")){
                     System.out.println("EL EMAIL EXISTE");
                 }else{
                     System.out.println("EL EMAIL NOOO EXISTE");
-                }
+                }*/
 
 
 

@@ -16,10 +16,6 @@ import py.fpuna.com.agendapediatricaapp.VacunasActivity;
 import py.fpuna.com.agendapediatricaapp.dto.HijosDTO;
 
 
-/**
- * Created by jaime on 10/04/17.
- */
-
 public class HijosAdapter extends RecyclerView.Adapter<HijosAdapter.ResultadoViewHolder>{
     private Context context;
     private List<HijosDTO> hijos;
@@ -74,6 +70,7 @@ public class HijosAdapter extends RecyclerView.Adapter<HijosAdapter.ResultadoVie
 
                     Intent intent = new Intent(context, VacunasActivity.class);
                     intent.putExtra("hijo", nombre.getText());
+                    intent.putExtra("id", id.getText());
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     context.startActivity(intent);
 

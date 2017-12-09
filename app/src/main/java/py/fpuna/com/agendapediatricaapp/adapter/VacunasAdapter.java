@@ -13,11 +13,6 @@ import py.fpuna.com.agendapediatricaapp.R;
 import py.fpuna.com.agendapediatricaapp.dto.HijosDTO;
 import py.fpuna.com.agendapediatricaapp.dto.VacunaDTO;
 
-
-/**
- * Created by jaime on 10/04/17.
- */
-
 public class VacunasAdapter extends RecyclerView.Adapter<VacunasAdapter.ResultadoViewHolder>{
     private Context context;
     private List<VacunaDTO> vacunas;

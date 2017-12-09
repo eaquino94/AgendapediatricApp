@@ -1,6 +1,7 @@
 package py.fpuna.com.agendapediatricaapp.dto;
 
 import java.sql.Date;
+import java.util.List;
 
 
 public class HijosDTO {
@@ -10,8 +11,9 @@ public class HijosDTO {
     private String nombres;
 
     private String apellidos;
+    private List<VacunaDTO> vacunasCollection;
 
-    private Date fechaNacimiento;
+   // private Date fechaNacimiento;
     private Character sexo;
     private String nacionalidad;
 
@@ -24,6 +26,14 @@ public class HijosDTO {
         this.id = id;
         this.nombres = nombres;
         this.apellidos = apellidos;
+    }
+
+    public List<VacunaDTO> getVacunasCollection() {
+        return vacunasCollection;
+    }
+
+    public void setVacunasCollection(List<VacunaDTO> vacunasCollection) {
+        this.vacunasCollection = vacunasCollection;
     }
 
     public Integer getId() {
@@ -58,13 +68,13 @@ public class HijosDTO {
         this.apellidos = apellidos;
     }
 
-    public Date getFechaNacimiento() {
+    /*public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
-    }
+    }*/
 
     public Character getSexo() {
         return sexo;
