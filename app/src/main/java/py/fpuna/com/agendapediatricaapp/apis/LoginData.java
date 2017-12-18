@@ -6,6 +6,8 @@ import java.util.List;
 import py.fpuna.com.agendapediatricaapp.dto.UsuarioDTO;
 import py.fpuna.com.agendapediatricaapp.dto.VacunaDTO;
 
+
+
 public class LoginData {
 
     public static UsuarioDTO usuario;

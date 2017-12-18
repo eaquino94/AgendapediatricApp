@@ -1,6 +1,7 @@
 package py.fpuna.com.agendapediatricaapp.apis;
 
 public class Respuesta {
+
 	String estado;
 	String error;
 	Object datos;

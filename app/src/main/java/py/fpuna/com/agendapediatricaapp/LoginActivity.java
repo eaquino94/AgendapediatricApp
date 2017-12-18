@@ -2,19 +2,25 @@ package py.fpuna.com.agendapediatricaapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.StrictMode;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
@@ -84,7 +90,7 @@ public class LoginActivity extends AppCompatActivity {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
             System.out.println("SUCCESS: " + result.isSuccess());
             //la respuesta es FALSE por eso no entra aqui
-           /* if (result.isSuccess()) {
+            if (result.isSuccess()) {
                 final GoogleApiClient client = mGoogleApiClient;
                 GoogleSignInAccount profile = result.getSignInAccount();
 
@@ -101,19 +107,22 @@ public class LoginActivity extends AppCompatActivity {
                 if (profile.getPhotoUrl() != null) {
                     uriPicture = profile.getPhotoUrl().toString();
                 }
-                // save profile information to preferences
+                /*// save profile information to preferences
                 SharedPreferences prefs = getSharedPreferences("com.misuperapp.app", Context.MODE_PRIVATE);
                 prefs.edit().putString("com.misuperapp.app.nombre", name).apply();
                 prefs.edit().putString("com.misuperapp.app.email", email).apply();
                 prefs.edit().putString("com.misuperapp.app.uriPicture", uriPicture).apply();
                 // redirect to map screen
-                startActivity(new Intent(LoginActivity.this, HijosActivity.class));
+                startActivity(new Intent(LoginActivity.this, HijosActivity.class));*/
+
+                validarusuario(email);
             } else {
+                Log.i("ERROR", result.getStatus().toString());
                 // Otros result de actividades de inicio de session como facebook o twitter
-            }*/
+            }
 
            //valida el usuario, en duro, deberia obtener del resultado del GoogleSignInResult
-           validarusuario("cparedes.cabanas@gmail.com");
+           //validarusuario("cparedes.cabanas@gmail.com");
 
         }
 
@@ -209,7 +218,7 @@ public class LoginActivity extends AppCompatActivity {
                         finish();
 
                     }else{
-
+                        Toast.makeText(LoginActivity.this, "El usuario no existe", Toast.LENGTH_SHORT).show();
                     }
 
                 }else if(metodo.equals("getVacunas")){
@@ -238,5 +247,14 @@ public class LoginActivity extends AppCompatActivity {
         }
 
     }
+    /*public void signOut() {
+        mGoogleApiClient.signOut()
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        // ...
+                    }
+                });
+    }*/
 
 }

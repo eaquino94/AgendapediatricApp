@@ -13,6 +13,8 @@ import py.fpuna.com.agendapediatricaapp.R;
 import py.fpuna.com.agendapediatricaapp.dto.HijosDTO;
 import py.fpuna.com.agendapediatricaapp.dto.VacunaDTO;
 
+
+
 public class VacunasAdapter extends RecyclerView.Adapter<VacunasAdapter.ResultadoViewHolder>{
     private Context context;
     private List<VacunaDTO> vacunas;
@@ -32,7 +34,7 @@ public class VacunasAdapter extends RecyclerView.Adapter<VacunasAdapter.Resultad
 
     @Override
     public void onBindViewHolder(VacunasAdapter.ResultadoViewHolder holder, int position) {
-       VacunaDTO item = vacunas.get(position);
+        VacunaDTO item = vacunas.get(position);
 
         holder.nombre.setText(item.getDescripcionVacunas());
         holder.fecha.setText(String.valueOf(item.getFechaAplicacion()));

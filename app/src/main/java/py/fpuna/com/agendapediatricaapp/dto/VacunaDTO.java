@@ -2,9 +2,7 @@ package py.fpuna.com.agendapediatricaapp.dto;
 
 import java.sql.Date;
 
-/**
- * Created by jaime on 18/11/17.
- */
+
 
 public class VacunaDTO {
 

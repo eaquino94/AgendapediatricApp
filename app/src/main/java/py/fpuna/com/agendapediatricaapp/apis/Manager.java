@@ -20,9 +20,7 @@ import py.fpuna.com.agendapediatricaapp.dto.HijosDTO;
 import py.fpuna.com.agendapediatricaapp.dto.JsonHelper;
 import py.fpuna.com.agendapediatricaapp.dto.UsuarioDTO;
 
-/**
- * Created by jaime on 18/11/17.
- */
+
 
 public class Manager {
 
@@ -56,7 +54,7 @@ public class Manager {
         wr.writeBytes(urlParameters);
         wr.flush();
         wr.close();
-        urlConnection.setConnectTimeout(5000); //5 segundos
+        urlConnection.setConnectTimeout(80000); //5 segundos
 
         int code = urlConnection.getResponseCode();
 
@@ -80,11 +78,11 @@ public class Manager {
             System.out.println("El estado de la respuesta: " + result.toString());
 
 
-            Gson gson = new Gson();
+            Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm'Z'").create();
 
 
             Type listType = new TypeToken<UsuarioDTO>() {}.getType();
-            UsuarioDTO user = new Gson().fromJson(result.toString(), listType);
+            UsuarioDTO user = gson.fromJson(result.toString(), listType);
             respuesta.setDatos(user);
 
 
@@ -122,7 +120,7 @@ public class Manager {
         wr.writeBytes(urlParameters);
         wr.flush();
         wr.close();
-        urlConnection.setConnectTimeout(5000); //5 segundos
+        urlConnection.setConnectTimeout(80000); //5 segundos
 
         int code = urlConnection.getResponseCode();
 
@@ -198,7 +196,7 @@ public class Manager {
         wr.writeBytes(urlParameters);
         wr.flush();
         wr.close();
-        urlConnection.setConnectTimeout(5000); //5 segundos
+        urlConnection.setConnectTimeout(80000); //5 segundos
 
         int code = urlConnection.getResponseCode();
 
